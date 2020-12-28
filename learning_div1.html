@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		.container{
+			position: relative;
+			padding: 0 100px;
+			min-height: 100vh;
+			overflow: hidden;
+		}
+		.container:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 350px;
+			height: 100%;
+			background: #333;
+			z-index: -2;
+		}
+		.container:after{
+			content: 'heLLO';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		font-size: 18vw;
+		font-weight: 700;
+			color: #000;
+			z-index: -2;
+			opacity: 0.04;
+		}
+		.header{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 30px 0;
+		}
+		.header .logo{
+			text-transform: uppercase;
+			font-weight: 700;
+			color: #333;
+			font-size: 30px;
+			text-decoration: none;
+		}
+		.logo span{
+			
+			color:#78ff00;
+		}
+		.header ul{
+			position: relative;
+			display: flex;
+		}
+		.header ul li{
+			list-style: none;
+			margin: 0 20px;
+		}
+		.header ul li a{
+			position: relative;
+			text-decoration: none;
+			font-size: 18px;
+			text-transform: uppercase;
+			color: #333;
+			padding: 4px 5px;
+            
+		}
+		.header ul li:nth-child(3) a{
+			color: white;
+	
+		}
+		.header ul li:nth-child(4) a{
+			color: white;
+		}
+		.header ul li a:before{
+			content: '';
+			position: absolute;
+			top:0;
+			left:0;
+			width: 0;
+			height: 100%;
+			background-color: #78ff00;
+			z-index: -1;
+			transition: 0.5s ease-in-out;
+		}
+		.header ul li a:hover:before{
+width: 40px;
+
+		}
+		.header ul li a.active:before{
+width: 40px;
+
+		}
+		.content{
+display: flex;
+justify-content: space-between;
+align-items: center;
+		}
+		.bannerimg{
+			position: relative;
+			width:440px;
+			height: 440px;
+			
+	border-bottom: 3px solid rgb(181, 255, 62);
+	border-left: 3px solid rgb(181, 255, 62);
+	
+padding: 9px;
+transition: 0.5s;	}
+.bannerimg img{
+	width: 100%;
+	height: 100%;
+	
+}
+
+		.bannertext{
+			position: relative;
+			max-width: 500px;
+			margin-right: 50px;
+		
+		}
+		.content h1{
+			color: #78ff00;
+			position: absolute;
+			transform: translate(-50px,-70px);
+		}
+		.content h1::before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-left: 1px solid black;
+			border-bottom: 1px solid black;
+			width:80%;
+			height: 100%;
+		}
+
+
+
+
+
+
+		#Paris h1{
+			color: #78ff00;
+			position: absolute;
+			transform: translate(-50px,40px);
+		}
+		#Paris h1::before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-left: 1px solid black;
+			border-bottom: 1px solid black;
+			width:80%;
+			height: 100%;
+		}
+
+
+
+		.content h2{
+			font-size: 30px;
+			line-height: 40px;
+
+		}
+		.content p{
+	
+			line-height: 20px;
+		}
+.content a{
+	position: relative;
+	text-decoration: none;
+	font-size: 15px;
+	color: #000;
+	line-height: 60px;
+	padding: 10px;
+}
+		.content a:before{
+			content: '';
+			position: absolute;
+			top:0;
+			left:0;
+			width: 60%;
+			height: 100%;
+			background-color: #78ff00;
+		border-radius:50px;
+			z-index: -1;
+			transition: 0.5s ease-in-out;
+            
+		}
+
+		.content a:hover:before{
+			content: '';
+			position: absolute;
+			top:0;
+			left:0;
+			width: 100%;
+			height: 100%;
+			background-color: #78ff00;
+           box-shadow:0px 10px 10px black;
+
+		
+			z-index: -1;
+			transition: 0.5s ease-in-out;
+		}
+
+		
+.element1
+{
+	opacity: 0.4;
+	position: absolute;
+	bottom: -150px;
+	right: 40%;
+	width: 250px;
+	height: 250px;
+	
+	border: 40px solid  #78ff00;
+}
+.element2
+{
+	opacity: 0.3;
+	position: absolute;
+	left: -10px;
+	top: 40%;
+	width: 50px;
+	height: 50px;
+	border: 2px solid rgb(0, 0, 0);
+}
+
+.open
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	z-index: 10000;
+}
+.open .layer
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform-origin: top;
+	animation: open 1s ease-in-out forwards;
+}
+.open .layer:nth-child(1)
+{
+	background: #ffffff;
+	z-index: 2;
+}
+.open .layer:nth-child(2)
+{
+	background: #000000;
+	animation-delay: 1s;
+	z-index: 1;
+}
+@keyframes open
+{
+	0%
+	{
+		transform: scaleY(1);
+	}
+	100%
+	{
+		transform: scaleX(0);
+	}
+}
+.social{
+	position: absolute;
+bottom: 5%;
+	display: flex;
+	
+	
+}
+.social i{
+	font-size: 30px;
+	margin: 10px;
+	color: #444443;
+	position: relative;
+	
+
+}
+.social i:hover{
+	transform: translate(0px,-5px);
+	color: #78ff00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 300px;
+  max-height: 300px;
+  position: relative;
+  float: right;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(140, 255, 87);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(138, 136, 136, 0.8);
+}
+.prev{
+	color: #000;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(80, 80, 80, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #ffffff;
+  font-size: 35px;
+  padding: 8px 12px;
+  position: absolute;
+  width: 100%;
+  font-weight: 900;
+  background-color: #000000;
+  transform: translate(-500px,-200px);
+  text-align: center;
+  box-shadow: 0px 10px 10px black;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.skill .active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+.imgg{
+	height: 300px;
+	width: 300px;
+	
+	
+}
+.imgg img{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+.menu{
+	display:none;
+}
+
+
+
+   .bannertext a:before{
+			width: 100%;
+   }
+
+
+
+
+@media(max-width:992px)
+{
+
+    .bannertext a:before{
+			width: 100%;
+            z-index:-1;
+
+    }
+    .bannertext a{
+        z-index:2;
+    }
+	.container{
+		
+		padding: 20px 50px ;
+	}
+	.container:before{
+		display: none;
+	}
+	.header{
+		padding: 0;
+	}
+	.bannertext h2{
+		font-size: 20px;
+	}
+	.content{
+		margin-top: 20px;
+		flex-direction: column-reverse;
+	}
+	.bannertext h1{
+		z-index: 5;
+		color: #000;
+		transform: translate(20px,-60px);
+		background-color: white;
+	}
+	.content .bannerimg{
+		width: 100%;
+		height: 40%;
+		margin: 20px 0;
+	}
+	.bannertext{
+		max-width: 100%;
+	}
+	.social{
+		position: relative;
+		display: flex;
+	
+		bottom: 0;
+		right: 0;
+		float: right;
+		margin-top: 0px;
+		z-index: 111;
+	}
+	.myDIV{
+		display: none;
+
+
+	}
+
+.header ul{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: #fff;
+	display: block;
+	
+	display: none;
+	z-index: 10000;
+	padding: 100px 0;
+	}
+.header ul li{
+	padding: 20px;
+	text-align: center;
+
+}
+.header ul li a{
+	color: #333  !important;
+	font-size: 36px;
+}
+.header ul li a:hover:before{
+width: 100%;
+
+		}
+		.header ul li a.active:before{
+width: 100%;
+
+		}
+	
+
+
+.menu{
+	display: initial;
+	
+	position: fixed;
+	right: 50px;
+	cursor: pointer;padding: 8px;
+	z-index: 111;
+	background: transparent;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+	font-size: 40px;
+	background-position: 8px;
+	
+}
+
+
+}
+
+
+	</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		<script src="https://kit.fontawesome.com/8893b709f5.js" crossorigin="anonymous"></script>
+		
+</head>
+<body>
+	
+    <script src="https://kit.fontawesome.com/8893b709f5.js" crossorigin="anonymous"></script>
+	<div class="open">
+		<div class="layer"></div>
+		<div class="layer"></div>
+	</div>
+	<div class="menu menuu" onclick="my()">
+		<i class="fas fa-bars" style="color:#78ff00;" ></i>
+	</div>
+	<div class="container">
+		
+		<div class="header">
+			<a href="#" class="logo">my<span>  portfolio</span></a>
+
+
+		
+			<ul id="myDIV">
+				
+				<li ><a href="index.html" class="active"  class="tablinks" id="defaultOpen">ABOUT</a></li>
+				<li><a href="skill.html"  class="tablinks" >SKILLS</a></li>
+				<li><a href="project.html"  class="tablinks" >PROJECTS</a></li>
+			<li><a href="contact.html"  class="tablinks">CONTACT</a></li>
+			<div class="menu" onclick="my()">
+				<i class="fas fa-times" style="color:#78ff00;" ></i>
+			</div>	
+		</ul>
+			
+			
+		</div>
+		
+		<br>
+        
+
+		
+<div id="London" class="tabcontent">
+	<div class="content">
+		<div class="bannertext">
+			<div>
+				<h1>ABOUT ME</h1>
+				<h2>SHUBHAM PRAKSH
+				</h2>
+				<p style="text-transform: capitalize;">Hello! I'm a web developer and programmer.I have a diverse set of skills ranging from design,html,css,javascript all the way to php. I familiar with multiple programming languages.navigate to know more about me.
+
+				</p>
+					<a href="cv.pdf" download>DOWNLOAD CV</a>
+			</div>
+		</div>
+		<div class="bannerimg">
+			<img src="11.png" alt="">
+		</div>
+	</div>
+	
+	</div>
+	
+
+
+	<div class="social">
+		<a href="https://www.facebook.com/shubham.prakash.7503" class="facebook"><i class="fab fa-facebook"></i></a>
+		<a href="https://www.instagram.com/xm_shubham/"><i class="fab fa-instagram"></i></a>
+		<a href="https://wa.me/08658034359" class="twitter"><i class="fab fa-whatsapp"></i></a>
+		<a href="https://github.com/prakashshubham13" class="twitter"><i class="fab fa-github"></i></a>
+	 </div>
+
+	<div class="element1"></div>
+	<div class="element2"></div>
+
+</div>
+
+
+
+
+<script>
+	var slideIndex = 1;
+	showSlides(slideIndex);
+	
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+	
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+	
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+		  slides[i].style.display = "none";  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+		  dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " active";
+	}
+	</script>
+<script>
+	function my() {
+		var x = document.getElementById("myDIV");
+	  if (x.style.display === "none") {
+		x.style.display = "block";
+	  } else {
+		x.style.display = "none";
+	  }
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body{
+    background-image: url(../images/mine1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.unordered_list
+{
+   margin: 0;
+   padding: 0;
+   position: fixed;
+   right: 0px;
+   top: 0px;
+  list-style: none;
+}
+ .unordered_list li{
+
+     float: left;
+     display: inline-block;
+     background-color: yellowgreen;
+ }
+ .unordered_list li a{
+     font-family: monospace;
+     font-weight: 20px;
+     font-size: 13px;
+     text-decoration: none;
+     text-transform: uppercase;
+     color: white;
+     text-align: center;
+     float: right;
+     display: block;
+     margin-right: 25px;
+     padding: 10px;
+ }
+
+#name{
+    height: 20px;
+    max-width: 200px;
+    margin 0;
+    padding: 0;
+    top:0;
+    }
+#name p{
+    left: 0;
+    position: absolute;
+    top:0;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+}
+

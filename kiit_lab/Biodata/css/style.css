@@ -1,0 +1,57 @@
+﻿body {
+    background-color: #0ff;
+}
+
+.main {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Calibri;
+    border: 1px solid green;
+    padding: 20px 20px 20px 20px;
+    line-height: 25px;
+    background-color: #FFF;
+}
+
+.picture {
+    float: right;
+    margin-top: 20px;
+}
+
+.main p {
+    font-family: Cambria;
+    text-align: justify;
+    line-height: 30px;
+}
+
+.main hr {
+    margin-bottom: 50px;
+}
+
+.details {
+    float: left;
+}
+
+.main table {
+    width: 100%;
+    font-family: Calibri;
+}
+
+    .main table tr td {
+        padding: 10px 10px 10px 10px;
+        width: 25%;
+        font-family: Cambria;
+        font-size: 15px;
+    }
+
+.main h2 {
+    text-decoration: underline;
+}
+
+.main ol li {
+    list-style-type: circle;
+    font-family: Cambria;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

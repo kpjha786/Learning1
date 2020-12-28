@@ -1,0 +1,113 @@
+body {
+    font-family: Brush Script MT,cursive ; 
+    background: url(bg.jpg) ;
+     background-attachment: fixed ; 
+     background-position: center;
+    background-repeat: no-repeat ;
+     background-size: cover ; }
+    
+    h1 {
+        color: #17738f ;
+         text-align: center;
+         font-size: 400%;
+        }
+    
+    .nav-1{
+        margin-right: 110px;
+         margin-left: 600px;
+        }
+    
+    .nav-2{
+        margin-right: 110px;
+    }
+    
+    .grid-container {
+        display: grid ;
+         grid-template-columns: auto auto auto;
+        }
+    
+    .grid-item-1 {
+         padding: 20px ;
+          text-align: center ;
+           margin-left: 180px;
+        }
+    
+    .grid-item-2 {
+         padding: 20px ;
+          text-align: center ;
+        }
+    
+    .grid-item-3 {
+         padding: 20px ;
+          text-align: center ;
+           margin-right: 260px;
+        }
+    
+    .sky-blue{
+        font-size: 240% ;
+         color: #17738f ;
+        }
+    
+    .checked {
+        color: orange;
+    }
+    
+    .skills {
+        color: #17738f ;
+         font-size: 400% ;
+          text-align: center;
+        }
+    
+    .about-text {
+        margin-left: 400px;
+         color: #17738f;
+    }
+    
+    input[type=text], select, textarea { 
+        width: 100% ;
+         padding: 12px ;
+        border: 1px solid #ccc ;
+        margin-top: 6px ;
+        margin-bottom: 16px;
+    resize: vertical;
+ }
+      
+    input[type=submit] {
+        background-color: #4CAF50 ;
+        color: white ;
+        padding: 12px 20px ;
+        border: none ;
+        cursor: pointer ;
+}
+      
+    input[type=submit]:hover {
+        background-color: #45a049 ; 
+    }
+     
+    .contact {
+        border-radius: 5px ;
+        background-color: #f2f2f2 ;
+        padding: 5px ;
+        height: 530px;
+     }
+    
+    .column { 
+    float: left ;
+    width: 50% ;
+    margin-top: 6px ;
+    padding: 20px ;
+ }
+     
+    .row:after {
+    content: "" ;
+    display: table ;
+    clear: both ;
+}
+    
+    @media screen and (max-width: 600px) {
+        .column, input[type=submit] 
+        {
+            width: 100%;
+            margin-top: 0;
+        } 
+    }
